@@ -16,6 +16,7 @@
 		E8EA175726BE622500546756 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8EA175626BE622500546756 /* SecondViewController.swift */; };
 		E8EA175926BE623100546756 /* ThirdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8EA175826BE623100546756 /* ThirdViewController.swift */; };
 		E8EA175F26BE689D00546756 /* UserInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8EA175E26BE689D00546756 /* UserInformation.swift */; };
+		E8EA176126BED78A00546756 /* NavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8EA176026BED78A00546756 /* NavigationViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		E8EA175626BE622500546756 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		E8EA175826BE623100546756 /* ThirdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdViewController.swift; sourceTree = "<group>"; };
 		E8EA175E26BE689D00546756 /* UserInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInformation.swift; sourceTree = "<group>"; };
+		E8EA176026BED78A00546756 /* NavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +68,7 @@
 				E8EA174126BE61E900546756 /* AppDelegate.swift */,
 				E8EA174326BE61E900546756 /* SceneDelegate.swift */,
 				E8EA174726BE61E900546756 /* Main.storyboard */,
+				E8EA176026BED78A00546756 /* NavigationViewController.swift */,
 				E8EA175E26BE689D00546756 /* UserInformation.swift */,
 				E8EA174A26BE61EA00546756 /* Assets.xcassets */,
 				E8EA174C26BE61EA00546756 /* LaunchScreen.storyboard */,
@@ -159,6 +162,7 @@
 				E8EA174626BE61E900546756 /* ViewController.swift in Sources */,
 				E8EA175926BE623100546756 /* ThirdViewController.swift in Sources */,
 				E8EA174226BE61E900546756 /* AppDelegate.swift in Sources */,
+				E8EA176126BED78A00546756 /* NavigationViewController.swift in Sources */,
 				E8EA174426BE61E900546756 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -14,12 +14,12 @@ class ThirdViewController: UIViewController {
   @IBOutlet weak var dateLabel: UILabel!
   @IBOutlet weak var datePicker: UIDatePicker!
   @IBOutlet weak var signupButton: UIButton!
+  var saveUserID : String = "" /// UserID 저장용
   var dateisfull : Bool = false
   var numberisfull : Bool = false
   let dateFormatter: DateFormatter = {
     let formatter: DateFormatter = DateFormatter()
     formatter.dateStyle = .medium
-    
     /// 원하는 대로 custom 하고 싶으면
     //formatter.dateFormat = "yyyy/MM/dd hh:mm:ss"
     return formatter
@@ -47,20 +47,22 @@ class ThirdViewController: UIViewController {
     }
   }
   @IBAction func cancelButtonClicked(_ sender: Any) {
-    self.presentingViewController?.presentingViewController?.dismiss(animated: false, completion: nil)
+    self.dismiss(animated: true, completion: nil)
     }
   
   
   @IBAction func beforeButtonClicked(_ sender: Any) {
-    self.dismiss(animated: true, completion: nil)
+    self.navigationController?.popViewController(animated: true)
   }
   
   @IBAction func signupButtonClicked(_ sender: Any) {
     if dateisfull == true && numberisfull == true {
-      guard let nextVC = self.storyboard?.instantiateViewController(identifier: "ViewController") as? ViewController else { return}
-      nextVC.modalTransitionStyle = .crossDissolve
-      nextVC.modalPresentationStyle = .fullScreen
-      self.present(nextVC, animated: true, completion: nil)
+      ///확인 버튼을 누를 때만 saveuserID에 저장되어 있던 ID값이 UserInformation에 전달되도록!
+      UserInformation.shared.userID = self.saveUserID
+      ///navigation 과 modal 한번에 닫고 첫화면으로 돌아가기
+      self.navigationController?.dismiss(animated: true, completion: {
+           self.navigationController?.popViewController(animated: true)
+      })
     }
   }
   

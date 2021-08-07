@@ -25,6 +25,7 @@ class SecondViewController: UIViewController, UIImagePickerControllerDelegate, U
   @IBOutlet weak var usercheckpasswordTextField: UITextField!
   @IBOutlet weak var explainTextView: UITextView!
   @IBOutlet weak var cancelButton: UIButton!
+  var saveUserID : String = "" /// UserID 저장용
   var idfull : Bool = false
   var pwfull : Bool = false
   var pwcfull : Bool = false
@@ -33,10 +34,22 @@ class SecondViewController: UIViewController, UIImagePickerControllerDelegate, U
   var passwordstatus : Bool = false
   var cangoNext : Bool = false
  
+  //MARK : LifeCycle
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    textFieldRight()
+    textViewRight()
+  }
+  
+  ///화면을 터치하면 키보드가 내려가게 만들기
+  override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+    self.view.endEditing(true)
+  }
+  
+  /// ImagePicker
   @IBAction func ImageButtonClicked(_ sender: Any) {
     self.present(self.imagePicker, animated: true, completion: nil)
   }
-  /// ImagePicker
   func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
     self.dismiss(animated: true, completion: nil)
   }
@@ -56,32 +69,13 @@ class SecondViewController: UIViewController, UIImagePickerControllerDelegate, U
     
     /// 만약 모든 조건을 만족시킨다면 다음 화면으로 넘어가게
     if cangoNext == true {
-      
       guard let nextVC = self.storyboard?.instantiateViewController(identifier: "ThirdViewController") as? ThirdViewController else {return}
-      self.navigationController?.pushViewController(nextVC, animated: true)
-//      nextVC.modalTransitionStyle = .crossDissolve
-//      nextVC.modalPresentationStyle = .fullScreen
-//      self.present(nextVC, animated: true, completion: nil)
-      ///userInformation에 유저 아이디 저장
-      UserInformation.shared.userID = useridTextField.text
       
+      /// 바로 Userinformation에 저장하지 않고, 세번째 뷰컨의 saveUserID에 값 넘겨주기
+      self.saveUserID.append(useridTextField.text ?? "empty")
+      nextVC.saveUserID = self.saveUserID
+      self.navigationController?.pushViewController(nextVC, animated: true)
     }
-  }
-  
-  
-  //MARK : LifeCycle
-  override func viewDidLoad() {
-    super.viewDidLoad()
-    textFieldRight()
-    textViewRight()
-  }
-  override func viewWillAppear(_ animated: Bool) {
-    self.reloadInputViews()
-    
-  }
-  
-  override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-    self.view.endEditing(true)
   }
 }
 

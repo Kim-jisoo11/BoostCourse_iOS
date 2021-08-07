@@ -15,10 +15,10 @@ class ViewController: UIViewController {
   @IBOutlet weak var idTextField: UITextField!
   @IBOutlet weak var passwordTextField: UITextField!
   @IBAction func signupButtonClicked(_ sender: Any) {
-    guard let nextVC = self.storyboard?.instantiateViewController(identifier: "SecondViewController") as? SecondViewController else {return}
+    guard let nextVC = self.storyboard?.instantiateViewController(identifier: "NavigationViewController") as? NavigationViewController else {return}
     
     nextVC.modalPresentationStyle = .fullScreen
-    self.navigationController?.present(nextVC, animated: true, completion: nil)
+    self.present(nextVC, animated: true, completion: nil)
   }
   
   //MARK : LifeCycle
@@ -27,6 +27,7 @@ class ViewController: UIViewController {
     // Do any additional setup after loading the view.
   }
   override func viewWillAppear(_ animated: Bool) {
+    /// 뷰가 나타날 때 UserInformation에 저장되어있던 ID값 불러오기
     super.viewWillAppear(animated)
     self.idTextField.text = UserInformation.shared.userID
   }
