@@ -12,11 +12,8 @@ class ViewController: UIViewController {
   @IBOutlet weak var ageTextField: UITextField!
   
   @IBAction func setButtonClicked(_ sender: Any) {
-    print("sd")
     UserInformation.shared.name = nameTextField.text
     UserInformation.shared.age = ageTextField.text
-    print(UserInformation.shared.name ?? "없음")
-    print(UserInformation.shared.age ?? "나이없음")
   }
   
   override func viewDidLoad() {
