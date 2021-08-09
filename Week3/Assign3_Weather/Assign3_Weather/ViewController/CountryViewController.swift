@@ -56,11 +56,26 @@ extension CountryViewController : UITableViewDataSource {
     let weather : DetailWeatherDataModel = self.weathers[indexPath.row]
     cell.citynameLabel?.text = weather.cityName
     cell.rainfallLabel?.text = "강수확률\(weather.rainfallProbability)%"
-    cell.degreeLabel?.text = "섭씨\(weather.celsius)도 / 화씨\(((weather.celsius)*9/5)+32)도"
+    ///기온 변환
+    let CeltoF = ((weather.celsius)*9/5)+32
+    cell.degreeLabel?.text = "섭씨\(weather.celsius)도 / 화씨\((round(CeltoF*1000))/1000)도"
     ///Label Font size & color  조절
     cell.citynameLabel.font = UIFont.systemFont(ofSize: 18, weight: .bold)
     cell.rainfallLabel.font = UIFont.systemFont(ofSize: 14, weight: .regular)
     cell.degreeLabel.font = UIFont.systemFont(ofSize: 14, weight: .regular)
+    ///강수량이 50 넘으면 오렌지 색으로
+    if weather.rainfallProbability >= 50 {
+      cell.rainfallLabel.textColor = UIColor.orange
+    } else {
+      cell.rainfallLabel.textColor = UIColor.black
+    }
+    ///기온이 10도 밑으로 내려가면 블루 색으로 
+    if weather.celsius <= 10 {
+      cell.degreeLabel.textColor = UIColor.blue
+    } else {
+      cell.degreeLabel.textColor = UIColor.black
+    }
+    
     ///이미지 넣어주기
     if weather.state == 10 {
       statenum = "sunny"
