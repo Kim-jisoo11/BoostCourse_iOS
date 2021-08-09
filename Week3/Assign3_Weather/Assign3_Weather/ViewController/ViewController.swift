@@ -11,10 +11,10 @@ class ViewController: UIViewController {
   @IBOutlet weak var countryTableView: UITableView!
   let countryCellIdentifier : String = "CountryTableViewCell"
   var countries : [CountryListDataModel] = []
-  
+  var selectedCountry : String = ""
+  var selectedTitle : String = ""
   
   // MARK : LifeCycle
-  
   override func viewDidLoad() {
     super.viewDidLoad()
     self.countryTableView.delegate = self
@@ -34,8 +34,8 @@ class ViewController: UIViewController {
     }
     self.countryTableView.reloadData()
   }
-
-
+  
+  
 }
 
 extension ViewController : UITableViewDelegate {
@@ -43,7 +43,7 @@ extension ViewController : UITableViewDelegate {
 }
 extension ViewController : UITableViewDataSource {
   func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-    95
+    return 95
   }
   
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -61,13 +61,31 @@ extension ViewController : UITableViewDataSource {
       cell.countryImageView.image = image
     }
     cell.countryLabel?.text = country.koreanName
+    cell.countryLabel.font = UIFont.systemFont(ofSize: 18, weight: .bold)
     return cell
   }
   
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    ///선택된 열 회색에서 흰색으로 돌아오게
+    tableView.deselectRow(at: indexPath, animated: true)
+    ///다음 스토리보드로 넘어가기
     guard let nextVC = self.storyboard?.instantiateViewController(identifier: "CountryViewController") as? CountryViewController else {return}
-///어떤 나라의 것을 눌렀는지 그 에셋 네임을 저장해서 같이 넘겨주어야 함!
-    ///전역 변수 만들어서 빈 문자열 만들어 놓고 거기에다가 에셋 네임을 넣어서 넘겨주면 될것같음!
+    let country : CountryListDataModel = self.countries[indexPath.row]
+    
+    ///만약 selectedCountry가 비어있다면 더해주고, 내용이 있다면 삭제 후 넣어주도록
+    if selectedCountry == "" {
+      self.selectedCountry.append(country.assetName)
+      self.selectedTitle.append(country.koreanName)
+    } else {
+      self.selectedCountry.removeAll()
+      self.selectedTitle.removeAll()
+      self.selectedCountry.append(country.assetName)
+      self.selectedTitle.append(country.koreanName)
+    }
+    ///nextVC에다가 선택된 selectedCountry전달해주기
+    nextVC.selectedCountry = self.selectedCountry
+    nextVC.selectedTitle = self.selectedTitle
+    
     self.navigationController?.pushViewController(nextVC, animated: true)
   }
   

@@ -33,7 +33,7 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="s87-R4-Fy4">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="s87-R4-Fy4">
                                                     <rect key="frame" x="20" y="5" width="105" height="85"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="105" id="5oA-LD-UHP"/>
@@ -88,7 +88,7 @@
                                 <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="120" id="M8o-O6-JeY">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="WeatherTableViewCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="WeatherTableViewCell" rowHeight="120" id="M8o-O6-JeY" customClass="WeatherTableViewCell" customModule="Assign3_Weather" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="24.5" width="414" height="120"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="M8o-O6-JeY" id="5aJ-6l-T4G">
@@ -135,6 +135,12 @@
                                                 <constraint firstItem="Q3d-8g-KIy" firstAttribute="top" secondItem="5aJ-6l-T4G" secondAttribute="top" constant="3" id="cqc-x6-iOh"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="citynameLabel" destination="gjH-4z-pBc" id="uxe-Yf-TPT"/>
+                                            <outlet property="degreeLabel" destination="7pL-HB-fbp" id="7rJ-vi-3uB"/>
+                                            <outlet property="rainfallLabel" destination="Afk-Ej-cmV" id="WrL-Ay-G27"/>
+                                            <outlet property="weatherImageView" destination="Q3d-8g-KIy" id="IiP-HY-Qr1"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -148,6 +154,9 @@
                             <constraint firstItem="cUa-X4-P0G" firstAttribute="leading" secondItem="D03-tw-p49" secondAttribute="leading" id="nmC-S9-33z"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="weatherTableView" destination="cUa-X4-P0G" id="7g6-PI-nC1"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UO6-av-lxI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -160,9 +169,53 @@
                     <view key="view" contentMode="scaleToFill" id="phf-ZU-Rec">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="IWi-Db-FEK">
+                                <rect key="frame" x="107" y="166" width="200" height="200"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="cU1-dk-tKO"/>
+                                    <constraint firstAttribute="height" constant="200" id="t8Y-7h-Bgt"/>
+                                </constraints>
+                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="vWD-Zv-xlI">
+                                <rect key="frame" x="186.5" y="403" width="41.5" height="91.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ud7-Rl-OLG">
+                                        <rect key="frame" x="0.0" y="0.0" width="41.5" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qOV-bc-4eV">
+                                        <rect key="frame" x="0.0" y="35.5" width="41.5" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="drH-oV-LwO">
+                                        <rect key="frame" x="0.0" y="71" width="41.5" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="Ow0-wH-hHC"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="IWi-Db-FEK" firstAttribute="centerX" secondItem="phf-ZU-Rec" secondAttribute="centerX" id="HW9-ZY-1ET"/>
+                            <constraint firstItem="vWD-Zv-xlI" firstAttribute="top" secondItem="IWi-Db-FEK" secondAttribute="bottom" constant="37" id="NZF-Aq-9dL"/>
+                            <constraint firstItem="IWi-Db-FEK" firstAttribute="top" secondItem="Ow0-wH-hHC" secondAttribute="top" constant="122" id="oof-f2-M54"/>
+                            <constraint firstItem="vWD-Zv-xlI" firstAttribute="centerX" secondItem="phf-ZU-Rec" secondAttribute="centerX" id="s4r-vP-ZIY"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="degreeLabel" destination="qOV-bc-4eV" id="EgR-yy-b7H"/>
+                        <outlet property="rainfallLabel" destination="drH-oV-LwO" id="oNG-Sn-Z7I"/>
+                        <outlet property="weatherImageView" destination="IWi-Db-FEK" id="AIf-e7-gsY"/>
+                        <outlet property="weatherTitleLabel" destination="Ud7-Rl-OLG" id="7L3-o9-ohk"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bZ4-kG-w3h" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -176,6 +229,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="gPI-XE-4u0">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="barTintColor" red="0.25490196079999999" green="0.25490196079999999" blue="0.81960784310000001" alpha="1" colorSpace="calibratedRGB"/>
                         <textAttributes key="titleTextAttributes">
                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>

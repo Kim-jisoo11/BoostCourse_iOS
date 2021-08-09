@@ -8,7 +8,13 @@
 import UIKit
 
 class WeatherTableViewCell: UITableViewCell {
-
+  static let identifier : String = "WeatherTableViewCell"
+  
+  @IBOutlet weak var weatherImageView: UIImageView!
+  @IBOutlet weak var citynameLabel: UILabel!
+  @IBOutlet weak var degreeLabel: UILabel!
+  @IBOutlet weak var rainfallLabel: UILabel!
+  
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

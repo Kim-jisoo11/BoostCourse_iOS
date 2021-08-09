@@ -7,18 +7,18 @@
 
 import Foundation
 
-// MARK: - DetailWeatherElement
-struct DetailWeatherElement: Codable {
-    let cityName: String
-    let state: Int
-    let celsius: Double
-    let rainfallProbability: Int
-
-    enum CodingKeys: String, CodingKey {
-        case cityName = "city_name"
-        case state, celsius
-        case rainfallProbability = "rainfall_probability"
-    }
+// MARK: - DetailWeatherElement[
+struct DetailWeatherDataModel : Codable {
+  let cityName : String
+  let state : Int
+  let celsius : Float
+  let rainfallProbability : Int
+  
+  enum CodingKeys : String, CodingKey {
+    case state, celsius
+    case cityName = "city_name"
+    case rainfallProbability = "rainfall_probability"
+  }
+  
 }
 
-typealias DetailWeather = [DetailWeatherElement]
