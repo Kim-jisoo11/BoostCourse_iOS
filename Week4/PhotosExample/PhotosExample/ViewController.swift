@@ -72,6 +72,11 @@ class ViewController: UIViewController, PHPhotoLibraryChangeObserver {
   }
 }
 extension ViewController : UITableViewDelegate {
+  func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    guard let nextVC = self.storyboard?.instantiateViewController(identifier: "ImageZoomViewController") as? ImageZoomViewController else { return }
+    nextVC.asset = self.fetchResult[indexPath.row]
+    self.navigationController?.pushViewController(nextVC, animated: true)
+  }
   func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
     return 120
   }
