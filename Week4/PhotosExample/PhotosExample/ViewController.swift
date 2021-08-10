@@ -13,6 +13,9 @@ class ViewController: UIViewController, PHPhotoLibraryChangeObserver {
   var fetchResult : PHFetchResult<PHAsset>!
   let imageManager : PHCachingImageManager = PHCachingImageManager()
   let cellIdentifier : String = "cell"
+  @IBAction func refreshButtonClicked(_ sender: Any) {
+    self.tableView.reloadSections(IndexSet(0...0), with: .automatic)
+  }
   
   func requestCollection () {
     

@@ -22,6 +22,7 @@ class ImageZoomViewController: UIViewController, UIScrollViewDelegate {
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    self.navigationItem.title = "사진"
     self.scrollView.delegate = self
     imageManager.requestImage(for: asset,
                               targetSize: CGSize(width: asset.pixelWidth, height: asset.pixelHeight),
