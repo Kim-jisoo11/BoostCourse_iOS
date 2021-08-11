@@ -34,28 +34,28 @@
                                             <rect key="frame" x="0.0" y="0.0" width="216" height="214"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ou8-o6-d0D">
-                                                    <rect key="frame" x="87" y="97" width="42" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <color key="highlightedColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dXM-8I-qrM">
-                                                    <rect key="frame" x="8" y="14" width="42" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <color key="highlightedColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                </label>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="13" translatesAutoresizingMaskIntoConstraints="NO" id="cvc-Zc-6lI">
+                                                    <rect key="frame" x="87.5" y="80" width="41.5" height="54"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dXM-8I-qrM">
+                                                            <rect key="frame" x="0.0" y="0.0" width="41.5" height="20.5"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <color key="highlightedColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ou8-o6-d0D">
+                                                            <rect key="frame" x="0.0" y="33.5" width="41.5" height="20.5"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <color key="highlightedColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </label>
+                                                    </subviews>
+                                                </stackView>
                                             </subviews>
                                             <color key="backgroundColor" red="0.25490196079999999" green="0.25490196079999999" blue="0.81960784310000001" alpha="1" colorSpace="calibratedRGB"/>
                                             <constraints>
-                                                <constraint firstItem="ou8-o6-d0D" firstAttribute="leading" secondItem="cWv-kr-5OQ" secondAttribute="leading" constant="87" id="5F2-fF-IL6"/>
-                                                <constraint firstItem="ou8-o6-d0D" firstAttribute="top" secondItem="cWv-kr-5OQ" secondAttribute="top" constant="97" id="73D-ru-fGK"/>
-                                                <constraint firstAttribute="trailing" secondItem="dXM-8I-qrM" secondAttribute="trailing" constant="166" id="Nvk-bo-Yfl"/>
-                                                <constraint firstItem="dXM-8I-qrM" firstAttribute="leading" secondItem="cWv-kr-5OQ" secondAttribute="leading" constant="8" id="R1q-Vw-32t"/>
-                                                <constraint firstAttribute="bottom" secondItem="ou8-o6-d0D" secondAttribute="bottom" constant="96" id="Se0-in-fM2"/>
-                                                <constraint firstItem="dXM-8I-qrM" firstAttribute="top" secondItem="cWv-kr-5OQ" secondAttribute="top" constant="14" id="tNM-Rh-cdj"/>
-                                                <constraint firstAttribute="trailing" secondItem="ou8-o6-d0D" secondAttribute="trailing" constant="87" id="xfb-C1-ZWa"/>
+                                                <constraint firstItem="cvc-Zc-6lI" firstAttribute="centerY" secondItem="cWv-kr-5OQ" secondAttribute="centerY" id="Dge-MK-ZVx"/>
+                                                <constraint firstItem="cvc-Zc-6lI" firstAttribute="centerX" secondItem="cWv-kr-5OQ" secondAttribute="centerX" id="JWU-8H-2UG"/>
                                             </constraints>
                                         </collectionViewCellContentView>
                                         <size key="customSize" width="216" height="214"/>
