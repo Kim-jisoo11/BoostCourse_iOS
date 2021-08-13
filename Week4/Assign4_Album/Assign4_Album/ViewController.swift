@@ -16,7 +16,7 @@ class ViewController: UIViewController,PHPhotoLibraryChangeObserver {
   
   let imageManager : PHCachingImageManager = PHCachingImageManager()
   let cellIdentifier : String = "AlbumCollectionViewCell"
-
+  
   func requestCollection () {
     let cameraRoll : PHFetchResult<PHAssetCollection> = PHAssetCollection.fetchAssetCollections(with: .smartAlbum, subtype: .smartAlbumUserLibrary, options: nil)
     guard let cameraRollCollection = cameraRoll.firstObject else {
@@ -42,7 +42,7 @@ class ViewController: UIViewController,PHPhotoLibraryChangeObserver {
         print(count)
         print(title)
       } else {
-    }
+      }
     }
   }
   override func viewDidLoad() {
@@ -104,13 +104,13 @@ extension ViewController : UICollectionViewDataSource {
   func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
     let cell : AlbumCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: self.cellIdentifier, for: indexPath) as! AlbumCollectionViewCell
     
-//    let asset : PHAsset = fetchResult.object(at: indexPath.row)
-//    let album : PHAssetCollection = albumList.object(at: indexPath.row)
+    //    let asset : PHAsset = fetchResult.object(at: indexPath.row)
+    //    let album : PHAssetCollection = albumList.object(at: indexPath.row)
     guard let asset =
-     
-    imageManager.requestImage(for: asset,
-                              targetSize: CGSize(width: 100, height: 100),
-                              contentMode: .aspectFill, options: nil, resultHandler: {image, _ in cell.albumImageView?.image = image})
+            
+            imageManager.requestImage(for: asset,
+                                      targetSize: CGSize(width: 100, height: 100),
+                                      contentMode: .aspectFill, options: nil, resultHandler: {image, _ in cell.albumImageView?.image = image})
     return cell
   }
   
