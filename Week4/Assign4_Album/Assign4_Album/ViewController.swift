@@ -31,6 +31,7 @@ class ViewController: UIViewController,PHPhotoLibraryChangeObserver {
     let options : PHFetchOptions = PHFetchOptions()
     let getAlbums : PHFetchResult = PHAssetCollection.fetchAssetCollections(with: .album, subtype: .any, options: options)
     guard let collectionImage = getAlbums.firstObject else {
+      
       return
     }
     print(getAlbums)
