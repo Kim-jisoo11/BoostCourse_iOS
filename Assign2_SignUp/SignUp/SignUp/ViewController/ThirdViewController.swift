@@ -65,7 +65,6 @@ class ThirdViewController: UIViewController {
       })
     }
   }
-  
 }
 
 extension ThirdViewController {

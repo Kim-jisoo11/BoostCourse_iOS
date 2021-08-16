@@ -297,6 +297,7 @@
         <!--Navigation View Controller-->
         <scene sceneID="nTT-Yd-IgC">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZcO-6P-U7L" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <navigationController storyboardIdentifier="NavigationViewController" automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="H2a-QP-P9l" customClass="NavigationViewController" customModule="SignUp" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="X9Y-VY-hRR">
@@ -307,7 +308,6 @@
                         <segue destination="3gr-dd-1ST" kind="relationship" relationship="rootViewController" id="ZAF-FG-9Wj"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ZcO-6P-U7L" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4392.753623188406" y="93.75"/>
         </scene>
