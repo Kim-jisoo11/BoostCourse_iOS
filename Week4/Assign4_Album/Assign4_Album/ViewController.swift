@@ -21,6 +21,7 @@ class ViewController: UIViewController,PHPhotoLibraryChangeObserver {
     let cameraRoll : PHFetchResult<PHAssetCollection> = PHAssetCollection.fetchAssetCollections(with: .smartAlbum, subtype: .smartAlbumUserLibrary, options: nil)
     guard let cameraRollCollection = cameraRoll.firstObject else {
       return
+      
     }
     let fetchOptions = PHFetchOptions()
     fetchOptions.sortDescriptors = [NSSortDescriptor(key: "creationDate", ascending: false)]
