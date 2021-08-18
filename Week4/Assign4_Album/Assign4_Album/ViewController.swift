@@ -14,6 +14,7 @@ class ViewController: UIViewController,PHPhotoLibraryChangeObserver {
   var fetchResult : PHFetchResult<PHAsset>!
   var albumList : PHFetchResult<PHAssetCollection>!
   
+  
   let imageManager : PHCachingImageManager = PHCachingImageManager()
   let cellIdentifier : String = "AlbumCollectionViewCell"
   
